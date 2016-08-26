@@ -63,7 +63,7 @@ for ei in xrange(len(features)):
     if labels[ei] == result:
         correct += 1
 
-print correct / float(len(features))
+print 'Accuracy: %f' % (correct / float(len(features)))
 
 
 
