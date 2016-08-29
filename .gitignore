@@ -2,3 +2,6 @@
 /.settings/
 /.pydevproject
 /BuildingMachineLearningSystemsWithPython/
+*.pyc
+*.pyo
+
