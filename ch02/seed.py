@@ -29,10 +29,11 @@ classifier = KNeighborsClassifier(n_neighbors=1)
 classifier = Pipeline([('norm', StandardScaler()), ('knn', classifier)])
 kf = KFold(len(features), n_folds=5, shuffle=True)
 means=[]
-for training, testing in kf:
+for i, (training, testing) in enumerate(kf):
     classifier.fit(features[training], labels[training])
     prediction = classifier.predict(features[testing])
     curmean = np.mean(prediction == labels[testing])
+    print u'%d проход верность: %f' % (i+1, curmean)
     means.append(curmean)
 print u'Средняя верность: %f' % np.mean(means)
 
